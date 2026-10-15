@@ -72,7 +72,7 @@ function LabScene({reaction,result,progress,running,system}:{reaction:Reaction;r
  </svg>;
 }
 
-export default function Lab(){
+export default function Lab({onNewSession}:{onNewSession:()=>void}){
  const [tab,setTab]=useState('lab'),[reactions,setReactions]=useState<Reaction[]>(seeds),[selected,setSelected]=useState('zn-hcl'),[inputs,setInputs]=useState<Measure[]>(structuredClone(seeds[0].defaults!)),[settings,setSettings]=useState(settingsDefault),[result,setResult]=useState<any>(null),[progress,setProgress]=useState(0),[running,setRunning]=useState(false),[loading,setLoading]=useState(false),[showMath,setShowMath]=useState(false),[toast,setToast]=useState(''),[error,setError]=useState(''),[help,setHelp]=useState(false),[signed,setSigned]=useState(false),[catalogError,setCatalogError]=useState(false),[questions,setQuestions]=useState<Question[]>([]),[generated,setGenerated]=useState<Question[]>([]),[savedIds,setSavedIds]=useState<string[]>([]),[questionCount,setQuestionCount]=useState(3),[editor,setEditor]=useState<Reaction|null>(null),[qEditor,setQEditor]=useState<Question|null>(null),[history,setHistory]=useState<any[]>([]),[prediction,setPrediction]=useState(''),[teacherTab,setTeacherTab]=useState('reactions'),[manual,setManual]=useState(''),[grade,setGrade]=useState(''),[balanceOpen,setBalanceOpen]=useState(false);
  const[forecast,setForecast]=useState(emptyForecast),[submittedForecast,setSubmittedForecast]=useState(emptyForecast);
  const [mode,setMode]=useState('learn'),[balancedFor,setBalancedFor]=useState(''),[measured,setMeasured]=useState<boolean[]>([]),[instrument,setInstrument]=useState<number|null>(null),[allowAuto,setAllowAuto]=useState(false),[target,setTarget]=useState('mixed'),[printTeacher,setPrintTeacher]=useState(false),[challengeId,setChallengeId]=useState('metal'),[completed,setCompleted]=useState<Record<string,boolean>>({}),[challengeFeedback,setChallengeFeedback]=useState('');
@@ -82,7 +82,7 @@ export default function Lab(){
  useEffect(()=>{loadCatalog();return()=>cancelAnimationFrame(frame.current);},[]);
  useEffect(()=>{if(!toast)return;const t=setTimeout(()=>setToast(''),4500);return()=>clearTimeout(t);},[toast]);
  const clear=()=>{setResult(null);setProgress(0);setError('');setManual('');setGrade('');};
- const newTrial=()=>{if(running||loading)return;clear();setPrediction('');setForecast(emptyForecast());setSubmittedForecast(emptyForecast());setMeasured([]);setInstrument(null);setChallengeFeedback('');setToast('Novo ensaio pronto. Reação, proporção e condições mantidas. Registre novas medidas e uma nova previsão; os ensaios anteriores continuam no histórico.');};
+ const newTrial=()=>{if(running||loading)return;onNewSession();};
  const choose=(id:string)=>{if(running)return;const r=reactions.find(r=>r.id===id)!;setSelected(id);setInputs(structuredClone(r.defaults??r.reactants.map(defaultInput)));setPrediction('');setForecast(emptyForecast());setBalancedFor('');setMeasured([]);setChallengeFeedback('');clear();};
  const update=(i:number,key:string,value:any)=>{setMeasured(old=>old.map((v,j)=>j===i?false:v));setInputs(old=>old.map((x,j)=>i===j?{...x,[key]:value}:x));clear();};
  const changeSetting=(key:string,value:any)=>{setSettings(s=>({...s,[key]:value}));clear();};

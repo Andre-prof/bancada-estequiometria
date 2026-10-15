@@ -83,4 +83,4 @@ A seção Comparar ensaios permite selecionar duas execuções da mesma reação
 
 O glossário explica os conceitos sem exigir sair da bancada. A simulação não inclui dissolução de precipitados ao adicionar água nem coleta sobre água; o coletor é uma representação esquemática de gás ideal seco.
 
-O botão **Novo ensaio**, junto aos controles da bancada, limpa resultados, previsões e registros de medição. Mantém a reação, os coeficientes conferidos, as quantidades exibidas como referência e as condições; exige registrar novas medidas. O histórico da sessão permanece disponível para comparar.
+O botão **Novo ensaio** reinicia toda a sessão, como recarregar a página: retorna ao modo Aprender e à escolha da reação, restaura as condições e quantidades iniciais, reinicia o roteiro e limpa resultados, medições, previsões, questões não salvas e histórico. A biblioteca e as preferências salvas no navegador são preservadas. Para comparar tentativas sem apagar o histórico, altere as medidas ou condições do ensaio atual.
