@@ -1,3 +1,4 @@
+import StoichiometricMass from './stoichiometric-mass';
 'use client';
 import{useState}from'react';
 import{localApi}from'../lib/library.mjs';
@@ -23,7 +24,7 @@ export default function BalancePanel({initial,onApply,onCreate,allowAuto=false,p
  {!report.simplified&&report.balanced&&<button className="secondary" onClick={()=>{setR(old=>({...old,reactants:old.reactants.map(s=>({...s,coef:s.coef/report.divisor})),products:old.products.map(s=>({...s,coef:s.coef/report.divisor}))}));setMessage('Coeficientes simplificados.');}}>Simplificar por {report.divisor}</button>}
  </>}
  {message&&<p className="balance-message" role="status">{message}</p>}{error&&<p className="error-message" role="alert">{error}</p>}
- {valid&&<div className="balanced-result"><small>EQUAÇÃO BALANCEADA</small><strong>{displayEquation(r)}</strong><button className="primary" onClick={()=>same?onApply(r):onCreate(r)}>{same?'Usar na bancada':'Levar ao cadastro de reação'}<ArrowRight size={15}/></button></div>}
+ {valid&&<div className="balanced-result"><small>EQUAÇÃO BALANCEADA</small><StoichiometricMass reaction={r}/><button className="primary" onClick={()=>same?onApply(r):onCreate(r)}>{same?'Usar na bancada':'Levar ao cadastro de reação'}<ArrowRight size={15}/></button></div>}
  <p className="balance-limits">Aceita fórmulas neutras, parênteses, colchetes e hidratos, como CuSO₄·5H₂O. O balanceamento conserva átomos; a viabilidade da reação e os estados físicos precisam de revisão. Estados omitidos são preenchidos como aq no cadastro. Equações iônicas não são suportadas.</p>
  </div>;
 }
