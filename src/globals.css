@@ -26,3 +26,5 @@
 @media screen{.limiting-row{background:#eef4e4}.investigation tbody th{min-width:95px}}
 
 @media screen{.learning-task,.investigation,.learning-layout{min-width:0}.investigation .table-scroll{max-width:100%;overflow-x:auto}.trial-options label{overflow-wrap:anywhere}.learning-task .balance-panel .coefficient-equation{max-width:100%;overflow-x:auto}}
+
+@media screen{.bench-controls{flex-wrap:wrap;gap:14px}.new-trial{white-space:nowrap;font-size:16px!important;padding:10px 16px!important}}

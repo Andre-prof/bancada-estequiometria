@@ -82,3 +82,5 @@ Antes de misturar, é possível registrar estimativas de volume de gás formado 
 A seção Comparar ensaios permite selecionar duas execuções da mesma reação e comparar entradas, temperatura, pressão, conversão, recuperação, limitante, gás e sólidos. O relatório JSON inclui os ensaios da sessão, coeficientes aplicados e previsões; não inclui identidade do aluno nem todas as tentativas de coeficientes. O histórico de até oito ensaios fica somente na sessão atual e pode ser exportado antes de fechar a página.
 
 O glossário explica os conceitos sem exigir sair da bancada. A simulação não inclui dissolução de precipitados ao adicionar água nem coleta sobre água; o coletor é uma representação esquemática de gás ideal seco.
+
+O botão **Novo ensaio**, junto aos controles da bancada, limpa resultados, previsões e registros de medição. Mantém a reação, os coeficientes conferidos, as quantidades exibidas como referência e as condições; exige registrar novas medidas. O histórico da sessão permanece disponível para comparar.
