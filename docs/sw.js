@@ -1,4 +1,4 @@
-const PREFIX='bancada-'+self.registration.scope,CACHE=PREFIX+'c4dc4728a7a3',FILES=["./","index.html","favicon.svg","manifest.webmanifest","assets/index-9zni6Lpp.css","assets/index-BtJL4Xte.js"];
+const PREFIX='bancada-'+self.registration.scope,CACHE=PREFIX+'f685c0da3605',FILES=["./","index.html","favicon.svg","manifest.webmanifest","assets/index-CWRjOInq.js","assets/index-D62lWByt.css"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith(fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return r;}).catch(async()=>await caches.match(e.request)||(e.request.mode==='navigate'?await caches.match(new URL('index.html',self.registration.scope).href):Response.error())));});

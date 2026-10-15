@@ -71,3 +71,14 @@ Para publicar pelo GitHub Pages: Settings → Pages → Deploy from a branch →
 - `lib/library.mjs`: armazenamento e validação local.
 
 Leia [CONTRIBUTING.md](CONTRIBUTING.md) para colaborar. Código sob licença [MIT](LICENSE). Bibliotecas de terceiros mantêm suas próprias licenças.
+
+
+## Investigar e comparar
+
+O balanceamento no modo Aprender acontece dentro da segunda etapa, com tabela de átomos em tempo real. A primeira etapa pede identificar um reagente e um produto. A barra Seu experimento contém apenas o seletor de reação.
+
+Antes de misturar, é possível registrar estimativas de volume de gás formado em L, massa de sólidos no fundo em g e uma justificativa. Depois do ensaio, o aplicativo apresenta previsão e simulação lado a lado. As estimativas são opcionais e não recebem nota. Ao mudar as condições, revise sua previsão antes do novo ensaio.
+
+A seção Comparar ensaios permite selecionar duas execuções da mesma reação e comparar entradas, temperatura, pressão, conversão, recuperação, limitante, gás e sólidos. O relatório JSON inclui os ensaios da sessão, coeficientes aplicados e previsões; não inclui identidade do aluno nem todas as tentativas de coeficientes. O histórico de até oito ensaios fica somente na sessão atual e pode ser exportado antes de fechar a página.
+
+O glossário explica os conceitos sem exigir sair da bancada. A simulação não inclui dissolução de precipitados ao adicionar água nem coleta sobre água; o coletor é uma representação esquemática de gás ideal seco.
