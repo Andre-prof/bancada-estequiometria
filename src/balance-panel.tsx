@@ -8,8 +8,8 @@ type S={formula:string;coef:number;phase:string;explicitPhase?:boolean};type R={
 const raw=(r:R)=>[r.reactants,r.products].map(side=>side.map(s=>`${s.formula}(${s.phase})`).join(' + ')).join(' -> ');
 const displayEquation=(r:R)=>[r.reactants,r.products].map(side=>side.map(s=>(s.coef===1?'':s.coef+' ')+pretty(s.formula)+(s.explicitPhase===false?'':'('+s.phase+')')).join(' + ')).join(' → ');
 const reset=(r:R)=>({...r,reactants:r.reactants.map(s=>({...s,coef:1})),products:r.products.map(s=>({...s,coef:1}))});
-export default function BalancePanel({initial,onApply,onCreate,allowAuto=false}:{allowAuto?:boolean;initial:R;onApply:(r:R)=>void;onCreate:(r:R)=>void}){
- const[text,setText]=useState(raw(initial)),[loaded,setLoaded]=useState(raw(initial)),[r,setR]=useState<R>(reset(initial)),[message,setMessage]=useState(''),[error,setError]=useState(''),[busy,setBusy]=useState(false);
+export default function BalancePanel({initial,onApply,onCreate,allowAuto=false,preserve=false}:{preserve?:boolean;allowAuto?:boolean;initial:R;onApply:(r:R)=>void;onCreate:(r:R)=>void}){
+ const[text,setText]=useState(raw(initial)),[loaded,setLoaded]=useState(raw(initial)),[r,setR]=useState<R>(preserve?initial:reset(initial)),[message,setMessage]=useState(''),[error,setError]=useState(''),[busy,setBusy]=useState(false);
  const report=checkBalance(r),valid=report.balanced&&report.simplified&&text===loaded,same=r.reactants.length===initial.reactants.length&&r.products.length===initial.products.length&&r.reactants.every((s,i)=>s.formula===initial.reactants[i].formula)&&r.products.every((s,i)=>s.formula===initial.products[i].formula);
  const load=()=>{try{const p=parseEquation(text);setR(p);setLoaded(text);setError('');setMessage('Ajuste apenas os coeficientes. As fórmulas permanecem iguais.');}catch(e){setError((e as Error).message);}};
  const auto=async()=>{setError('');setBusy(true);try{const data:any=await localApi('/api/balance',{equation:text});setR(data.reaction);setLoaded(text);setMessage('O balanceador encontrou a menor proporção inteira e conferiu cada elemento.');}catch(e){setError((e as Error).message);}finally{setBusy(false);}};
