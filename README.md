@@ -84,3 +84,14 @@ A seção Comparar ensaios permite selecionar duas execuções da mesma reação
 O glossário explica os conceitos sem exigir sair da bancada. A simulação não inclui dissolução de precipitados ao adicionar água nem coleta sobre água; o coletor é uma representação esquemática de gás ideal seco.
 
 Ao abrir o aplicativo, o aluno encontra uma tela inicial com apresentação e instruções. **Novo ensaio** abre a bancada. O botão **Recomeçar**, no cabeçalho da bancada e disponível também nas abas do professor e de questões, encerra a sessão e volta à tela inicial. Limpa resultados, medições, previsões, questões não salvas e histórico. A biblioteca e as preferências salvas no navegador são preservadas. Para comparar tentativas sem apagar o histórico, altere as medidas ou condições do ensaio atual.
+
+
+## Importar reações em CSV
+
+A Área do professor possui um importador de reações separado do importador de atividades. Baixe modelo-reacoes-bancada.csv para ver as 16 colunas. Forneça fórmulas neutras de reagentes e produtos, estados físicos e condições: o aplicativo encontra coeficientes, não prevê produtos ou viabilidade química.
+
+Cada linha recebe uma prévia com equação balanceada e massas molares. Erros não são cadastrados. Reagentes gasosos são mostrados como fora do modelo, mesmo quando o balanceamento é possível. A opção explícita de recuperar nota só insere fase3p vazia quando há 15 campos, terceiro produto vazio e texto de nota no último campo; outras divergências exigem corrigir o CSV. As correções ficam indicadas na prévia.
+
+O professor deve revisar e marcar cada reação antes de salvar as selecionadas. Identificadores existentes nunca são sobrescritos: é possível criar cópia com novo id. Os exemplos nativos permanecem. As quantidades iniciais ficam zeradas; revise concentração, densidade e pureza antes de medir. As soluções começam com campo de concentração de 1 mol/L a revisar, sem validação de solubilidade. O modelo não reproduz automaticamente cores, cinética ou passivação descritas em uma nota.
+
+As importações entram na biblioteca local e podem ser compartilhadas por exportação JSON. O arquivo CSV de atividades continua usando o identificador de reações previamente cadastradas; o CSV de reações não configura questões nem contém gabaritos.
