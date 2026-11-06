@@ -99,3 +99,12 @@ As importações entram na biblioteca local e podem ser compartilhadas por expor
 O editor de reações permite preencher, duplicar e excluir linhas, abrir um CSV em memória e baixar outro arquivo com nome datado. Arquivos incompatíveis geram erro sem substituir a tabela atual. A opção de recuperação de notas deve ser autorizada antes de abrir arquivos com o campo fase3p faltante. Conferir tabela valida fórmulas e balanceamento; Baixar novo CSV bloqueia linhas inválidas. Reações gasosas podem ser transportadas no CSV, mas permanecem fora da simulação. Enviar tabela para revisão não salva automaticamente: selecione as reações revisadas e confirme a inclusão na biblioteca. O programa nunca abre o arquivo original para escrita.
 
 Os nomes dos campos e os controles do editor exibem dicas ao passar o mouse; Ajuda dos campos também permite ler as explicações no celular ou teclado. Para cadastrar uma única linha digitada online, confirme a revisão e use Adicionar reação no cartão abaixo da tabela. A inclusão é imediata na biblioteca local, com validação e proteção de identificadores repetidos. Revisar todas as linhas apenas abre a prévia para cadastro em lote; Baixar novo CSV apenas gera um arquivo.
+
+
+## Acessibilidade, ajuda e entrega de registros
+
+A barra superior oferece tamanho de texto Padrão ou Ampliado e AJUDA. O manual pode ser consultado sem perder o trabalho. O layout reorganiza os painéis em telas de Chromebook e celular. O indicador Preparar usa um béquer com bastão de vidro.
+
+O caderno Seus registros fica no final da atividade. Preencha Nome, Turma e explicação e escolha Exportar como imagem (PNG) ou Exportar como planilha (XLSX), em qualquer etapa. O registro traz reação, avaliação das previsões, medidas, limitante, excesso, remanescentes, rendimento, temperatura, pressão e histórico. Não inclui modo, passos do roteiro ou a ficha de cálculo; esta permanece no aplicativo.
+
+A previsão do limitante é obrigatória antes de misturar em todos os modos. Estimativas de gás e sólidos são opcionais: ausentes aparecem como Não informado; preenchidas são avaliadas com tolerância relativa de 1% e absoluta de 0,0000001 para zero. Exportações anteriores à conclusão não mostram resultados finais. Nome, turma e explicação não são enviados a servidores. Os arquivos devem ser entregues ao professor pelo meio indicado; não há login Google nem integração com Drive nesta versão.
